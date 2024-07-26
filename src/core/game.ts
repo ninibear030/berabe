@@ -13,7 +13,7 @@ const useGame = () => {
 
   // 游戏状态：0 - 初始化, 1 - 进行中, 2 - 失败结束, 3 - 胜利
   const gameStatus = ref(0);
-
+  const shuffuleCount = ref(0);
   // 各层块
   const levelBlocksVal = ref<BlockType[]>([]);
   // 随机区块
@@ -388,6 +388,7 @@ const useGame = () => {
    * @desc 随机重洗所有未被点击的块
    */
   const doShuffle = () => {
+    shuffuleCount.value++;
     // 遍历所有未消除的块
     const originBlocks = allBlocks.filter((block) => block.status === 0);
     const newBlockTypes = _.shuffle(originBlocks.map((block) => block.type));
@@ -499,6 +500,7 @@ const useGame = () => {
     clearBlockNum,
     isHolyLight,
     canSeeRandom,
+    shuffuleCount,
     doClickBlock,
     doStart,
     doShuffle,

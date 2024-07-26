@@ -91,7 +91,12 @@
         <a-space>
           <a-button size="small" @click="doRevert">back</a-button>
           <!-- <a-button size="small" @click="doRemove">move out</a-button> -->
-          <a-button size="small" @click="doShuffle">shuffle</a-button>
+          <a-button
+            size="small"
+            @click="doShuffle"
+            :disabled="shuffuleCount >=3"
+            >{{ shuffuleCount }}/3 shuffle</a-button
+          >
           <!-- <a-button size="small" @click="doBroke">破坏</a-button> -->
           <!-- <a-button size="small" @click="doHolyLight">圣光</a-button> -->
           <!-- <a-button size="small" @click="doSeeRandom">透视</a-button> -->
@@ -126,6 +131,7 @@ const {
   doClickBlock,
   doStart,
   doShuffle,
+  shuffuleCount,
   doBroke,
   doRemove,
   doRevert,
