@@ -19,7 +19,7 @@
   height: 700px;
   margin: 0 auto;
   padding: 10px;
-  background-color: black;
+  background-color: grey;
   position: relative;
 }
 </style>
