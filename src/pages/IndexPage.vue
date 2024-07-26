@@ -1,6 +1,6 @@
 <template>
   <div id="indexPage">
-    <h1>🐻 BeRaBe</h1>
+    <h1 class="white">🐻 BeRaBe</h1>
     <!-- <div style="margin-bottom: 16px">低配版羊了个羊小游戏，仅供消遣</div> -->
     <!-- <a-button
       block
@@ -37,7 +37,7 @@
     >
       天狱模式
     </a-button> -->
-    
+
     <a-button
       block
       style="margin-bottom: 16px"
@@ -107,5 +107,8 @@ const toGamePage = (config?: GameConfigType) => {
   bottom: 0;
   left: 0;
   right: 0;
+}
+.white {
+  color: white;
 }
 </style>
