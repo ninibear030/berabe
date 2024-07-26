@@ -97,7 +97,9 @@
           <!-- <a-button size="small" @click="doSeeRandom">透视</a-button> -->
         </a-space>
       </div>
-      <h3>Collect 3 similar beras to eliminate.</h3>
+      <h3>
+        Collect 3 similar beras to eliminate. Eliminate all blocks to win !!
+      </h3>
     </div>
   </div>
 </template>
