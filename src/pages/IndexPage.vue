@@ -8,42 +8,41 @@
       @click="toGamePage(easyGameConfig)"
     >
       简单模式
-    </a-button>
-    <a-button
+    </a-button> -->
+    <!-- <a-button
       block
       style="margin-bottom: 16px"
       @click="toGamePage(middleGameConfig)"
     >
       中等模式
-    </a-button>
+    </a-button> -->
     <a-button
       block
       style="margin-bottom: 16px"
       @click="toGamePage(hardGameConfig)"
     >
-      困难模式
+      ez
     </a-button>
     <a-button
       block
       style="margin-bottom: 16px"
       @click="toGamePage(lunaticGameConfig)"
     >
-      地狱模式
+      mid
     </a-button>
     <a-button
       block
       style="margin-bottom: 16px"
       @click="toGamePage(skyGameConfig)"
     >
-      天狱模式
-    </a-button> -->
-
+      hard
+    </a-button>
     <a-button
       block
       style="margin-bottom: 16px"
       @click="toGamePage(yangGameConfig)"
     >
-      Start
+      very hard
     </a-button>
     <!-- <a-button block style="margin-bottom: 16px" @click="() => toGamePage()">
       自定义 🔥
