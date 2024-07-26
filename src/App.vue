@@ -11,7 +11,7 @@
   padding: 16px 16px 50px;
   min-height: 100vh;
   background-size: 100% 100%;
-  background: url("bg.png");
+  background: url("./assets/bg.png");
 }
 
 .content {
