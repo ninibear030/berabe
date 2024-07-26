@@ -1,8 +1,8 @@
 <template>
   <div id="indexPage">
-    <h1>🐟 鱼了个鱼</h1>
-    <div style="margin-bottom: 16px">低配版羊了个羊小游戏，仅供消遣</div>
-    <a-button
+    <h1>🐻 BeRaBe</h1>
+    <!-- <div style="margin-bottom: 16px">低配版羊了个羊小游戏，仅供消遣</div> -->
+    <!-- <a-button
       block
       style="margin-bottom: 16px"
       @click="toGamePage(easyGameConfig)"
@@ -36,15 +36,16 @@
       @click="toGamePage(skyGameConfig)"
     >
       天狱模式
-    </a-button>
+    </a-button> -->
+    
     <a-button
       block
       style="margin-bottom: 16px"
       @click="toGamePage(yangGameConfig)"
     >
-      羊了个羊模式
+      Start
     </a-button>
-    <a-button block style="margin-bottom: 16px" @click="() => toGamePage()">
+    <!-- <a-button block style="margin-bottom: 16px" @click="() => toGamePage()">
       自定义 🔥
     </a-button>
     <my-ad />
@@ -61,7 +62,7 @@
       >
         代码开源
       </a>
-    </div>
+    </div> -->
   </div>
 </template>
 

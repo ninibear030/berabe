@@ -359,7 +359,7 @@ const useGame = () => {
     if (tempSlotNum >= gameConfig.slotNum) {
       gameStatus.value = 2;
       setTimeout(() => {
-        alert("你输了");
+        alert("u ded");
       }, 2000);
     }
     if (clearBlockNum.value >= totalBlockNum.value) {

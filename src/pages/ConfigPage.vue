@@ -2,7 +2,7 @@
   <div id="customConfigPage">
     <h2>
       自定义难度
-      <a-button style="float: right" @click="doBack">返回</a-button>
+      <a-button style="float: right" @click="doBack">back</a-button>
     </h2>
     <a-form
       ref="formRef"
@@ -56,6 +56,7 @@
   </div>
 </template>
 <script setup lang="ts">
+
 import { reactive, ref } from "vue";
 import { FormInstance } from "ant-design-vue";
 import { useRouter } from "vue-router";

@@ -1,14 +1,14 @@
 <template>
   <div id="gamePage">
     <a-row align="space-between">
-      <a-button style="margin-bottom: 8px" @click="doBack"> 返回</a-button>
-      <a-button>块数：{{ clearBlockNum }} / {{ totalBlockNum }}</a-button>
+      <a-button style="margin-bottom: 8px" @click="doBack">back</a-button>
+      <a-button>block left: {{ clearBlockNum }} / {{ totalBlockNum }}</a-button>
     </a-row>
     <!-- 胜利 -->
     <a-row align="center">
       <div v-if="gameStatus === 3" style="text-align: center">
-        <h2>恭喜，你赢啦！🎉</h2>
-        <img alt="程序员鱼皮" src="../assets/kunkun.png" />
+        <h2>u win 🎉</h2>
+        <!-- <img alt="程序员鱼皮" src="../assets/kunkun.png" /> -->
         <my-ad style="margin-top: 16px" />
       </div>
     </a-row>
@@ -30,7 +30,7 @@
             }"
             @click="() => doClickBlock(block)"
           >
-            {{ block.type }}
+            <img :src="block.type" :alt="block.type" class="block-img" />
           </div>
         </div>
       </div>
@@ -48,7 +48,11 @@
           class="block"
           @click="() => doClickBlock(randomBlock[0], index)"
         >
-          {{ randomBlock[0].type }}
+          <img
+            :src="randomBlock[0].type"
+            :alt="randomBlock[0].type"
+            class="block-img"
+          />
         </div>
         <!-- 隐藏 -->
         <div
@@ -57,27 +61,43 @@
           class="block disabled"
         >
           <span v-if="canSeeRandom">
-            {{ randomBlock[num].type }}
+            <img
+              :src="randomBlock[num].type"
+              :alt="randomBlock[num].type"
+              class="block-img"
+            />
           </span>
         </div>
       </div>
     </a-row>
-    <!-- 槽位 -->
-    <a-row v-if="slotAreaVal.length > 0" align="center" class="slot-board">
-      <div v-for="(slotBlock, index) in slotAreaVal" :key="index" class="block">
-        {{ slotBlock?.type }}
+    <div class="bottom-action">
+      <!-- 槽位 -->
+      <a-row v-if="slotAreaVal.length > 0" align="center" class="slot-board">
+        <div
+          v-for="(slotBlock, index) in slotAreaVal"
+          :key="index"
+          class="block"
+        >
+          <img
+            v-if="slotBlock"
+            :src="slotBlock?.type"
+            :alt="slotBlock?.type"
+            class="block-img"
+          />
+        </div>
+      </a-row>
+      <!-- 技能 -->
+      <div class="skill-board">
+        <a-space>
+          <a-button size="small" @click="doRevert">back</a-button>
+          <!-- <a-button size="small" @click="doRemove">move out</a-button> -->
+          <a-button size="small" @click="doShuffle">shuffle</a-button>
+          <!-- <a-button size="small" @click="doBroke">破坏</a-button> -->
+          <!-- <a-button size="small" @click="doHolyLight">圣光</a-button> -->
+          <!-- <a-button size="small" @click="doSeeRandom">透视</a-button> -->
+        </a-space>
       </div>
-    </a-row>
-    <!-- 技能 -->
-    <div class="skill-board">
-      <a-space>
-        <a-button size="small" @click="doRevert">撤回</a-button>
-        <a-button size="small" @click="doRemove">移出</a-button>
-        <a-button size="small" @click="doShuffle">洗牌</a-button>
-        <a-button size="small" @click="doBroke">破坏</a-button>
-        <a-button size="small" @click="doHolyLight">圣光</a-button>
-        <a-button size="small" @click="doSeeRandom">透视</a-button>
-      </a-space>
+      <h3>Collect 3 similar beras to eliminate.</h3>
     </div>
   </div>
 </template>
@@ -124,6 +144,19 @@ onMounted(() => {
 </script>
 
 <style scoped>
+.block-img {
+  width: 32px;
+  height: 32px;
+}
+
+.bottom-action {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  text-align: center;
+}
 .level-board {
   position: relative;
 }
@@ -156,14 +189,19 @@ onMounted(() => {
   height: 42px;
   line-height: 42px;
   border: 1px solid #eee;
+  border-radius: 4px;
   background: white;
   text-align: center;
   vertical-align: top;
   display: inline-block;
+  cursor: pointer;
+  transition: all 0.3s;
 }
 
 .disabled {
   background: grey;
+  opacity: 0.2;
   cursor: not-allowed;
+  transition: all 0.3s;
 }
 </style>
